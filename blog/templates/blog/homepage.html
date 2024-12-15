@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Homepage</title>
+</head>
+<body>
+    <h1>Welcome to the Blog!</h1>
+    <ul>
+        {% if posts %}
+            {% for post in posts %}
+            <li>
+                <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a> - Published on {{ post.published_date }}
+            </li>
+            {% endfor %}
+        {% else %}
+            <p>No blog posts available.</p>
+        {% endif %}
+    </ul>
+</body>
+</html>
+
